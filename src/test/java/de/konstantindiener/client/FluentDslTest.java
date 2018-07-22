@@ -17,18 +17,32 @@ class FluentDslTest {
     void createNewsSnippet() {
         fluentInterfaceTopic
                 .newNewsSnippet("SimpleSnippet")
-                .containing("An arbitrary description")
-                .taggedBy("Topic", "News", "DSL")
-                .add()
+                    .containing("An arbitrary content")
+                    .taggedBy("Topic", "News", "DSL")
+                    .add()
                 .newNewsSnippet("Another simple snippet")
-                .containing("A description")
-                .taggedBy("Topic", "News", "DSL")
-                .add();
+                    .containing("Content")
+                    .taggedBy("Topic", "News", "DSL")
+                    .add();
 
         List<NewsSnippet> newsSnippets = fluentInterfaceTopic.getNewsSnippets();
         assertThat(newsSnippets).hasSize(2);
 
-        
+        verifyNewsSnippet(newsSnippets.get(0),
+                "SimpleSnippet",
+                "An arbitrary content",
+                new String[]{"Topic", "News", "DSL"});
+
+        verifyNewsSnippet(newsSnippets.get(1),
+                "Another simple snippet",
+                "Content",
+                new String[]{"Topic", "News", "DSL"});
+    }
+
+    private void verifyNewsSnippet(NewsSnippet newsSnippet2, String s, String content, String[] tags) {
+        assertThat(newsSnippet2.getTitle()).isEqualTo(s);
+        assertThat(newsSnippet2.getContent()).isEqualTo(content);
+        assertThat(newsSnippet2.getTags()).contains(tags);
     }
 
     @Test
