@@ -30,8 +30,10 @@ public class NewsSnippetBuilder {
         return this;
     }
 
-    public void add() {
+    public Topic add() {
         this.objectUnderConstruction.topic = topic;
         topic.newsSnippets.add(this.objectUnderConstruction);
+
+        return topic;
     }
 }
