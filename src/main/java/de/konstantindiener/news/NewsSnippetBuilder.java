@@ -1,6 +1,9 @@
 package de.konstantindiener.news;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class NewsSnippetBuilder {
 
@@ -22,11 +25,12 @@ public class NewsSnippetBuilder {
     }
 
     public NewsSnippetBuilder taggedBy(String... tags) {
-        for (String tag : tags) {
-            if (!this.objectUnderConstruction.tags.contains(tag)) {
-                this.objectUnderConstruction.tags.add(tag);
-            }
-        }
+
+        List<String> allNewTags = Stream.of(tags)
+                .filter((String tag) -> !objectUnderConstruction.tags.contains(tag))
+                .collect(Collectors.toList());
+        objectUnderConstruction.tags.addAll(allNewTags);
+
         return this;
     }
 
