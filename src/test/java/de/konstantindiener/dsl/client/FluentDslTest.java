@@ -56,7 +56,7 @@ class FluentDslTest {
                 .newNewsSnippet("SimpleSnippet")
                     .containing("An arbitrary content")
                     .taggedBy("Topic", "News", "DSL")
-                    .validFrom(today()).to(now.plusWeeks(2))
+                    .validFrom(today()).lasting(2).weeks()
                     .add()
                 .newNewsSnippet("Another simple snippet")
                     .containing("Content")

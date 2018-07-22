@@ -1,6 +1,7 @@
 package de.konstantindiener.dsl.date;
 
 import java.time.LocalDate;
+import java.time.temporal.TemporalUnit;
 
 public class DateRangeBuilder<T> {
 
@@ -19,5 +20,11 @@ public class DateRangeBuilder<T> {
     public T to(LocalDate to) {
         this.callback.setDateRange(this.from, to);
         return this.parentBuilder;
+    }
+
+    public TimeUnitBuilder<T> lasting(int numberOfTimeUnits) {
+        return new TimeUnitBuilder<>(
+                parentBuilder,
+                ((TemporalUnit tu) -> this.callback.setDateRange(from, from.plus(numberOfTimeUnits, tu))));
     }
 }
