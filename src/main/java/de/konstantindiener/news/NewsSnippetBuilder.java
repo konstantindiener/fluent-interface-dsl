@@ -1,7 +1,6 @@
 package de.konstantindiener.news;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class NewsSnippetBuilder {
 
@@ -13,10 +12,8 @@ public class NewsSnippetBuilder {
         this.topic = topic;
         this.objectUnderConstruction = new NewsSnippet();
         this.objectUnderConstruction.title = title;
-        this.objectUnderConstruction.validFrom = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(9999, 11, 31);
-        this.objectUnderConstruction.validTo = calendar.getTime();
+        this.objectUnderConstruction.validFrom = LocalDate.now();
+        this.objectUnderConstruction.validTo = LocalDate.MAX;
     }
 
     public NewsSnippetBuilder containing(String contents) {

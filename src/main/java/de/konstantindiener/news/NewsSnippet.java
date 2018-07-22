@@ -1,7 +1,7 @@
 package de.konstantindiener.news;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class NewsSnippet {
@@ -11,11 +11,12 @@ public class NewsSnippet {
     String title;
 
     String description;
+
     String content;
 
-    Date validFrom;
+    LocalDate validFrom;
 
-    Date validTo;
+    LocalDate validTo;
 
-    List<String> tags = new ArrayList<String>();
+    List<String> tags = new ArrayList<>();
 }
