@@ -27,6 +27,8 @@ class FluentDslTest {
 
         List<NewsSnippet> newsSnippets = fluentInterfaceTopic.getNewsSnippets();
         assertThat(newsSnippets).hasSize(2);
+
+        
     }
 
     @Test
