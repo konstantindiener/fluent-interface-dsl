@@ -5,13 +5,17 @@ import java.time.temporal.TemporalUnit;
 
 public class DateRangeBuilder<T> {
 
+    public interface Callback {
+        void setDateRange(LocalDate from, LocalDate to);
+    }
+
     private final LocalDate from;
 
     private final T parentBuilder;
 
-    private final DateRangeBuilderCallback callback;
+    private final Callback callback;
 
-    public DateRangeBuilder(LocalDate from, T parentBuilder, DateRangeBuilderCallback callback) {
+    public DateRangeBuilder(LocalDate from, T parentBuilder, Callback callback) {
         this.from = from;
         this.parentBuilder = parentBuilder;
         this.callback = callback;

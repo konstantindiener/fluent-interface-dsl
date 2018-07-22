@@ -40,7 +40,10 @@ public class NewsSnippetBuilder {
         return new DateRangeBuilder<>(
                 asOfDate,
                 this,
-                this::setDateRange);
+                (LocalDate from, LocalDate to) -> {
+                    objectUnderConstruction.validFrom = from;
+                    objectUnderConstruction.validTo = to;
+                });
     }
 
     private void setDateRange(LocalDate from, LocalDate to) {

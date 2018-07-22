@@ -1,14 +1,19 @@
 package de.konstantindiener.dsl.date;
 
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 
 public class TimeUnitBuilder<T> {
 
+    public interface Callback {
+        void setTemporalUnit(TemporalUnit temporalUnit);
+    }
+
     private final T parentBuilder;
 
-    private final TimeUnitBuilderCallback callback;
+    private final Callback callback;
 
-    TimeUnitBuilder(T parentBuilder, TimeUnitBuilderCallback callback) {
+    TimeUnitBuilder(T parentBuilder, Callback callback) {
         this.parentBuilder = parentBuilder;
         this.callback = callback;
     }
