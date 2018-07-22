@@ -1,4 +1,4 @@
-package de.konstantindiener.news;
+package de.konstantindiener.dsl.date;
 
 import java.time.LocalDate;
 

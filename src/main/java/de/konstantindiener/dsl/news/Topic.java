@@ -1,4 +1,4 @@
-package de.konstantindiener.news;
+package de.konstantindiener.dsl.news;
 
 import java.util.ArrayList;
 import java.util.List;

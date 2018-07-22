@@ -1,4 +1,6 @@
-package de.konstantindiener.news;
+package de.konstantindiener.dsl.news;
+
+import de.konstantindiener.dsl.date.DateRangeBuilder;
 
 import java.time.LocalDate;
 import java.util.List;

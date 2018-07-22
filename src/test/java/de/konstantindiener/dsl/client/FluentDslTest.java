@@ -1,7 +1,7 @@
-package de.konstantindiener.client;
+package de.konstantindiener.dsl.client;
 
-import de.konstantindiener.news.NewsSnippet;
-import de.konstantindiener.news.Topic;
+import de.konstantindiener.dsl.news.NewsSnippet;
+import de.konstantindiener.dsl.news.Topic;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
