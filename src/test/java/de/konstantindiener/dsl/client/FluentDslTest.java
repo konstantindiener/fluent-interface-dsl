@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.List;
 
+import static de.konstantindiener.dsl.date.DateConstants.infinity;
+import static de.konstantindiener.dsl.date.DateConstants.today;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -54,12 +56,12 @@ class FluentDslTest {
                 .newNewsSnippet("SimpleSnippet")
                     .containing("An arbitrary content")
                     .taggedBy("Topic", "News", "DSL")
-                    .validFrom(now).to(now.plusWeeks(2))
+                    .validFrom(today()).to(now.plusWeeks(2))
                     .add()
                 .newNewsSnippet("Another simple snippet")
                     .containing("Content")
                     .taggedBy("Topic", "News", "DSL")
-                    .validFrom(now.plusDays(2)).to(LocalDate.MAX)
+                    .validFrom(now.plusDays(2)).to(infinity())
                     .add();
 
         List<NewsSnippet> newsSnippets = fluentInterfaceTopic.getNewsSnippets();
