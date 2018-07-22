@@ -30,6 +30,18 @@ public class NewsSnippetBuilder {
         return this;
     }
 
+    public DateRangeBuilder<NewsSnippetBuilder> validFrom(LocalDate asOfDate) {
+        return new DateRangeBuilder<>(
+                asOfDate,
+                this,
+                (this::_setDateRange));
+    }
+
+    private void _setDateRange(LocalDate from, LocalDate to) {
+        this.objectUnderConstruction.validFrom = from;
+        this.objectUnderConstruction.validTo = to;
+    }
+
     public Topic add() {
         this.objectUnderConstruction.topic = topic;
         topic.newsSnippets.add(this.objectUnderConstruction);
